@@ -1,3 +1,4 @@
+package business;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,6 +21,10 @@ public class Validar {
 	public boolean add(Maquina tag){
 		return maquinas.add(tag);
 	}
+	
+	
+	
+	
 	
 }
 //http://quality.dell.com/Search?tag=55VP2K2

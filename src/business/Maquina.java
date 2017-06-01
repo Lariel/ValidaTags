@@ -1,3 +1,4 @@
+package business;
 
 public class Maquina {
 	private String tag, modelo;
