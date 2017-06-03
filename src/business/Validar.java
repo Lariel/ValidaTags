@@ -60,11 +60,9 @@ public class Validar {
 	        
 	        if(consultaQuality.contains("Wyse")){
 	        	modelo = "wyse";
-	        }else modelo="outros";
-	        
-	        Maquina m=new Maquina(tag,modelo);
-			modelos.add(m);
-			
+	        	Maquina m=new Maquina(tag,modelo);
+				modelos.add(m);
+	        }else modelo="outros";	
 			
 		}
 
