@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.TelaController">
    <children>
-      <ListView fx:id="lvTags" editable="true" layoutX="36.0" layoutY="31.0" prefHeight="319.0" prefWidth="253.0" />
+      <TextArea fx:id="taTags" layoutX="26.0" layoutY="14.0" prefHeight="343.0" prefWidth="260.0" />
+      <ListView fx:id="lvModelos" layoutX="321.0" layoutY="14.0" prefHeight="343.0" prefWidth="260.0" />
+      <Button fx:id="btValidar" layoutX="26.0" layoutY="361.0" mnemonicParsing="false" onAction="#ValidarTags" prefHeight="40.0" prefWidth="555.0" text="Validar Tags / Modelo">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
