@@ -27,7 +27,7 @@ public class Maquina {
 
 	@Override
 	public String toString() {
-		return "Maquina tag=" + tag + ", modelo=" + modelo;
+		return "Tag: " + tag + ", Modelo: " + modelo;
 	}
 	
 	

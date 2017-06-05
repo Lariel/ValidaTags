@@ -58,8 +58,8 @@ public class Validar {
 	            ex.printStackTrace();
 	        }
 	        
-	        if(consultaQuality.contains("Wyse")){
-	        	modelo = "wyse";
+	        if(consultaQuality.toLowerCase().contains("wyse")){
+	        	modelo = "Wyse";
 	        	Maquina m=new Maquina(tag,modelo);
 				modelos.add(m);
 	        }else modelo="outros";	

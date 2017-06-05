@@ -18,6 +18,7 @@ public class App extends Application {
 		
 		stage.setScene(scene);
 		stage.setTitle("Valida Tags Wyse");
+		stage.setResizable(false);
 		stage.show();
 	}
 
