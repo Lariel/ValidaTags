@@ -18,6 +18,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class Validar {
 	//private ArrayList<String> tags;
 	private ArrayList<Maquina> modelos;
@@ -62,8 +65,15 @@ public class Validar {
 	        	modelo = "Wyse";
 	        	Maquina m=new Maquina(tag,modelo);
 				modelos.add(m);
-	        }else modelo="outros";	
-			
+	        }else modelo="outros";		
+		}
+		
+		if(modelos.size()==0){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Atenção!");
+			alert.setHeaderText(null);
+			alert.setContentText("Nenhum Wyse encontrado!");
+			alert.showAndWait();			
 		}
 
 		sc.close();

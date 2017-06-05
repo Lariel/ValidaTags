@@ -29,12 +29,36 @@ public class TelaController {
     private Button btValidar;
     
     @FXML
+    private Button btResetTags;
+
+    @FXML
+    private Button btResetResults;
+
+    @FXML
+    void ResetTags(ActionEvent event) {
+    	taTags.clear(); //limpa a text area 
+    	modelos.clear(); //limpa o array
+    }
+    
+    @FXML
+    void ResetResults(ActionEvent event) {
+    	listaTags.clear(); //limpa a observable list 
+    	lvModelos.getItems().clear(); //limpa a list view
+    }
+    
+    @FXML
     void ValidarTags(ActionEvent event) {
-    	modelos=validador.validar(taTags.getText().toString());
-    	//System.out.println("aqui"+taTags.getText());
+    	
+    	//metodo Validar recebe a lista de tags
+    	//array de modelos recebe o resultado do metodo Validar
+    	modelos=validador.validar(taTags.getText().toString()); 
+    	
+    	//ObservableList<Maquina> listaTags recebe todos os itens do array modelos
     	for(int i=0;i<modelos.size();i++){
     		listaTags.add(modelos.get(i));
     	}
+    	
+    	//ListView lvModelos recebe a ObservableList<Maquina> já preenchida
     	lvModelos.setItems(listaTags);
     	
     }
