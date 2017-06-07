@@ -15,7 +15,7 @@
          </font>
       </Button>
       <TextArea fx:id="taTags" layoutX="26.0" layoutY="14.0" minHeight="343.0" minWidth="260.0" prefHeight="384.0" prefWidth="260.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="14.0" />
-      <ListView fx:id="lvModelos" layoutX="314.0" layoutY="14.0" prefHeight="384.0" prefWidth="260.0" AnchorPane.bottomAnchor="107.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="14.0" />
+      <ListView fx:id="lvModelos" layoutX="314.0" layoutY="14.0" onMouseClicked="#Copiar" prefHeight="384.0" prefWidth="260.0" AnchorPane.bottomAnchor="107.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="14.0" />
       <Label fx:id="lblStatus" layoutX="196.0" layoutY="161.0" text="Buscando Wyse" textAlignment="CENTER" visible="false">
          <font>
             <Font size="30.0" />

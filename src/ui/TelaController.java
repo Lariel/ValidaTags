@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Toolkit;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -16,11 +17,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.MouseEvent;
 
 public class TelaController implements Initializable{
 	
 	Validar validador=new Validar();
 	private ArrayList<Maquina> modelos; 
+	final Clipboard clipboard = Clipboard.getSystemClipboard();
+    final ClipboardContent content = new ClipboardContent();
 	
 	ObservableList<Maquina> listaTags= FXCollections.observableArrayList(); 
 
@@ -84,7 +90,17 @@ public class TelaController implements Initializable{
     	//ListView lvModelos recebe a ObservableList<Maquina> já preenchida
     	lvModelos.setItems(listaTags);
     	
-    	
     }  
+    
+    @FXML
+    void Copiar(MouseEvent event) {
+    	
+    	int index=lvModelos.getSelectionModel().getSelectedIndex(); //pega o indice do item clicado na view
+    	String copiado=listaTags.get(index).getTag(); //pega a tag do item e add na String
+    	
+    	content.putString(copiado); //passa a String para content
+        clipboard.setContent(content); //add content na clipboard
+    	
+    }
 
 }
