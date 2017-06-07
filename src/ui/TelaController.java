@@ -1,6 +1,8 @@
 package ui;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import business.Maquina;
 import business.Validar;
@@ -8,11 +10,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 
-public class TelaController {
+public class TelaController implements Initializable{
 	
 	Validar validador=new Validar();
 	private ArrayList<Maquina> modelos; 
@@ -33,6 +38,24 @@ public class TelaController {
 
     @FXML
     private Button btResetResults;
+    
+    @FXML
+    private Label lblStatus;
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+    	String t="Cole aqui a lista de tags a consultar. "
+    			+ "      " +
+    			"Informe uma tag por linha, sem nenhum caracte especial";
+		taTags.promptTextProperty().set(t);
+    	taTags.setTooltip(new Tooltip("Informe as Tags aqui"));
+		lvModelos.setTooltip(new Tooltip("Resultados"));
+		btResetResults.setTooltip(new Tooltip("Limpar resultados"));
+		btResetTags.setTooltip(new Tooltip("Limpar pesquisa"));
+		// TODO Auto-generated method stub
+		
+	}
+    
 
     @FXML
     void ResetTags(ActionEvent event) {
@@ -61,8 +84,7 @@ public class TelaController {
     	//ListView lvModelos recebe a ObservableList<Maquina> já preenchida
     	lvModelos.setItems(listaTags);
     	
-    }
-    
-    
+    	
+    }  
 
 }
