@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -20,6 +21,7 @@ import java.util.Scanner;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import util.MaskFieldUtil;
 
 public class Validar {
 	//private ArrayList<String> tags;
@@ -36,7 +38,7 @@ public class Validar {
 	
 	public ArrayList<Maquina> validar(String tags){
 		
-		Scanner sc = new Scanner(tags).useDelimiter("\n"); 
+		Scanner sc = new Scanner(MaskFieldUtil.onlyAlfaNumericValue(tags)).useDelimiter("\n"); 
 		
 		while (sc.hasNext()) {
 			String tag=sc.next();
@@ -44,6 +46,7 @@ public class Validar {
 			
 			String stringURL = "http://quality.dell.com/Search?tag="+tag;
 	        String consultaQuality = "";
+	        
 	        try {
 	            URL url = new URL(stringURL);
 	            URLConnection connection = url.openConnection();
@@ -55,6 +58,12 @@ public class Validar {
 	            while ((inputLine = in.readLine()) != null) sb.append(inputLine);
 	            consultaQuality = sb.toString();
 	            in.close();
+	        }catch (UnknownHostException e) {
+	        	Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Atenção!");
+				alert.setHeaderText(null);
+				alert.setContentText("Host http://quality.dell.com não acessível");
+				alert.showAndWait();
 	        } catch (MalformedURLException ex) {
 	            ex.printStackTrace();
 	        } catch (IOException ex) {
