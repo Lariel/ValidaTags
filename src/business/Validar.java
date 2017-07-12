@@ -23,7 +23,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import util.MaskFieldUtil;
 
-public class Validar {
+public class Validar extends Thread {
 	//private ArrayList<String> tags;
 	private ArrayList<Maquina> modelos;
 	
@@ -89,6 +89,7 @@ public class Validar {
 
 		return modelos;
 	}
+
 }
 //http://quality.dell.com/Search?tag=55VP2K2
 

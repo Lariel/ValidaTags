@@ -9,21 +9,24 @@ import business.Maquina;
 import business.Validar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.MouseEvent;
+import util.ProgressStatus;
 
 public class TelaController implements Initializable{
-	
-	Validar validador=new Validar();
+
 	private ArrayList<Maquina> modelos; 
 	final Clipboard clipboard = Clipboard.getSystemClipboard();
     final ClipboardContent content = new ClipboardContent();
@@ -48,8 +51,32 @@ public class TelaController implements Initializable{
     @FXML
     private Label lblStatus;
     
+    @FXML
+    private ProgressIndicator pi1;
+    
+    final Service thread=new Service<Integer>(){
+		@Override
+		public Task createTask(){
+			return new Task<Integer>(){
+				@Override
+				public Integer call() throws InterruptedException{
+					int i;
+					for(i=0;i<1000;i++){
+						updateProgress(i,1000);
+						Thread.sleep(10);
+					}
+					return i;
+					
+				}
+			};
+		}
+	};
+    
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	lblStatus.setVisible(false);
+    	pi1.setVisible(false);
+    	pi1.progressProperty().bind(thread.progressProperty());
     	String t="Cole aqui a lista de tags a consultar. "
     			+ "      " +
     			"Informe uma tag por linha, sem nenhum caracte especial";
@@ -77,6 +104,14 @@ public class TelaController implements Initializable{
     
     @FXML
     void ValidarTags(ActionEvent event) {
+    	
+    	ProgressStatus ps=new ProgressStatus();
+    	Thread tPs=new Thread(ps);
+    	tPs.start();
+    	
+    	Validar validador=new Validar();
+    	Thread tValidador=new Thread(validador);
+    	tValidador.start();
     	
     	//metodo Validar recebe a lista de tags
     	//array de modelos recebe o resultado do metodo Validar
