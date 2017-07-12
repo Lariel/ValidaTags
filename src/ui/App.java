@@ -17,7 +17,7 @@ public class App extends Application {
 		Scene scene = new Scene(root);
 		
 		stage.setScene(scene);
-		stage.setTitle("Valida Tags Wyse          v1.6");
+		stage.setTitle("Valida Tags Wyse          v1.62");
 		stage.setResizable(false);
 		stage.show();
 	}

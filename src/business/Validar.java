@@ -38,7 +38,7 @@ public class Validar extends Thread {
 	
 	public ArrayList<Maquina> validar(String tags){
 		
-		Scanner sc = new Scanner(MaskFieldUtil.onlyAlfaNumericValue(tags)).useDelimiter("\n"); 
+		Scanner sc = new Scanner(tags).useDelimiter("\n"); 
 		
 		while (sc.hasNext()) {
 			String tag=sc.next();

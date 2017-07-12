@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.TelaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.TelaController">
    <children>
       <Button fx:id="btValidar" layoutX="26.0" layoutY="448.0" mnemonicParsing="false" onAction="#ValidarTags" prefHeight="40.0" prefWidth="548.0" text="Validar Tags / Modelo" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
          <font>
@@ -34,5 +32,6 @@
             <Font name="System Bold" size="16.0" />
          </font></Button>
       <ProgressIndicator fx:id="pi1" layoutX="256.0" layoutY="145.0" prefHeight="96.0" prefWidth="89.0" progress="0.0" visible="false" />
+      <Separator layoutX="26.0" layoutY="496.0" prefHeight="6.0" prefWidth="548.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" />
    </children>
 </AnchorPane>

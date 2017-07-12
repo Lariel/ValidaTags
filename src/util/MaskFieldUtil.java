@@ -245,7 +245,7 @@ public abstract class MaskFieldUtil {
         if (result == null) {
             return null;
         }
-        return result.replaceAll("[^0-9]", "");
+        return result.replaceAll("[^]", "");
     }
     
     public static String onlyAlfaNumericValue(String field) {
