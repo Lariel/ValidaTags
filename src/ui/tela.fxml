@@ -27,11 +27,16 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
-      <Button fx:id="btResetResults" layoutX="314.0" layoutY="411.0" mnemonicParsing="false" onAction="#ResetResults" prefHeight="25.0" prefWidth="260.0" text="Reset" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="26.0">
+      <Button fx:id="btResetResults" layoutX="314.0" layoutY="401.0" mnemonicParsing="false" onAction="#ResetResults" prefHeight="37.0" prefWidth="125.0" text="Reset" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="161.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Button>
       <ProgressIndicator fx:id="pi1" layoutX="256.0" layoutY="145.0" prefHeight="96.0" prefWidth="89.0" progress="0.0" visible="false" />
       <Separator layoutX="26.0" layoutY="496.0" prefHeight="6.0" prefWidth="548.0" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" />
+      <Button fx:id="btCopiarLista" disable="true" layoutX="449.0" layoutY="401.0" mnemonicParsing="false" onAction="#CopiarLista" prefHeight="37.0" prefWidth="125.0" text="Copiar Lista" AnchorPane.bottomAnchor="103.0" AnchorPane.rightAnchor="26.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -49,6 +49,9 @@ public class TelaController implements Initializable{
     private Button btResetResults;
     
     @FXML
+    private Button btCopiarLista;
+    
+    @FXML
     private Label lblStatus;
     
     @FXML
@@ -100,6 +103,7 @@ public class TelaController implements Initializable{
     void ResetResults(ActionEvent event) {
     	listaTags.clear(); //limpa a observable list 
     	lvModelos.getItems().clear(); //limpa a list view
+    	btCopiarLista.setDisable(true);
     }
     
     @FXML
@@ -121,7 +125,9 @@ public class TelaController implements Initializable{
     	for(int i=0;i<modelos.size();i++){
     		listaTags.add(modelos.get(i));
     	}
-    	
+    	if(modelos.size()!=0){
+    		btCopiarLista.setDisable(false);
+    	}
     	//ListView lvModelos recebe a ObservableList<Maquina> já preenchida
     	lvModelos.setItems(listaTags);
     	
@@ -129,13 +135,23 @@ public class TelaController implements Initializable{
     
     @FXML
     void Copiar(MouseEvent event) {
-    	
     	int index=lvModelos.getSelectionModel().getSelectedIndex(); //pega o indice do item clicado na view
     	String copiado=listaTags.get(index).getTag(); //pega a tag do item e add na String
     	
     	content.putString(copiado); //passa a String para content
         clipboard.setContent(content); //add content na clipboard
     	
+    }
+    
+    @FXML
+    void CopiarLista(ActionEvent event) {
+    	String listaCopiada= "Tags Wyse encontradas: \n";
+    	for(int i=0;i<listaTags.size();i++){
+    		listaCopiada=listaCopiada+listaTags.get(i).getTag()+"\n";
+    		//listaCopiada=listaTags.toString()+"\n";
+    	}
+    	content.putString(listaCopiada); //passa a String para content
+        clipboard.setContent(content); //add content na clipboard
     }
 
 }
